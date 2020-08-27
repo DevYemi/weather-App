@@ -1,0 +1,88 @@
+
+*{
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.app{
+  width: 100%;
+  background-image: url('/asset/weather.jpg');
+  background-size: cover;
+  background-position-x: 20% ;
+  transition: 1s ease-out;
+  background-repeat: no-repeat;
+}
+.warm {
+ background-image: url('/asset/warm.jpg');
+}
+.hot{
+  background-image: url('/asset/hot.jpg');
+}
+main{
+  height: 100vh;
+  padding: 25px;
+}
+.search-box{
+  width: 100%;
+  margin: 0 0 75px;
+}
+.search-box .search-bar {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  outline: none;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  margin-top: -25px;
+  box-shadow: 0px 5px 2px rgb(0, 0, 0, 0.3) ;
+  color:#313131;
+  font-size: 20px;
+  transition: 0.4 ease;
+}
+.search-box .search-bar:focus {
+background-color: rgb(255, 255, 255, 0.75);
+}
+.location-box, .weather-box {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+.location-box .location, .location {
+  font-size: 40px;
+  color: rgba(245, 245, 245, 0.897);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.514) ;
+}
+.location-box .date{
+  font-size: 16px;
+  color: grey;
+}
+.weather-box .deg{
+  word-break: break-all;
+  font-size: 40px;
+  font-family: 'Fredoka One', cursive;
+  color: rgba(0, 0, 0, 0.877);
+  margin: 20px 0;
+  padding: 30px 20px;
+  border-radius: 15px;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.247);
+  box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.9);
+  width: 125%;
+}
+.weather-box .temp {
+  font-size: 30px;
+  color: white;
+}
+@media (min-width: 768px) {
+  .app{
+    background-position-x: center;
+    background-size: cover;
+  }
+  .weather-box .deg{
+    width: 88%;
+    font-size: 102px;
+  }
+}
