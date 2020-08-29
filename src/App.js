@@ -9,17 +9,28 @@ const api = {
 function App() {
   const [query, setQuery] = useState('')
   const [weather, setWeather] = useState({});
+  const [message, setMessage] = useState("Input your Location")
   var cW = null
-  var message = 'Input your Location'
   const search = evt => {
     if (evt.key === 'Enter') {
       fetch(`${api.base}weather?q=${query}&appid=${api.key}`)
         .then(res => res.json())
         .then(result => {
+          if (result.message){
+            console.log(result.message)
+            let bg = document.getElementsByClassName('app')[0]
+            setMessage(result.message);
+            bg.classList.remove("warm", "hot");
+            bg.classList.add("weather");
+            setWeather(result);
+            setQuery('')
+          }else{
             console.log(result);
             setWeather(result);
             console.log(weather.main)
             setQuery('')
+          }
+            
         })
 
     }
@@ -36,13 +47,12 @@ function App() {
   }
   function celsiusWeather(weather) {
     let result = weather - 273.15;
+    let bg = document.getElementsByClassName('app')[0]
     if (result > 29 && result < 38) {
-      let bg = document.getElementsByClassName('app')[0]
       bg.classList.remove('warm')
       bg.classList.add('hot')
     }
     else {
-      let bg = document.getElementsByClassName('app')[0]
       bg.classList.remove('hot')
       bg.classList.add('warm')
     }
