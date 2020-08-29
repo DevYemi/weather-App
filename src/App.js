@@ -48,7 +48,7 @@ function App() {
   function celsiusWeather(weather) {
     let result = weather - 273.15;
     let bg = document.getElementsByClassName('app')[0]
-    if (result > 29 && result < 38) {
+    if (result >= 20 && result < 38) {
       bg.classList.remove('warm')
       bg.classList.add('hot')
     }
